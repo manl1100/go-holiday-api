@@ -5,6 +5,7 @@ import (
   "html"
   "net/http"
   "encoding/json"
+  "strconv"
 
   "github.com/gorilla/mux"
 )
@@ -14,16 +15,33 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
-  todos := Todos {
-    Todo { Name: "Something 1" },
-    Todo { Name: "Somethingelse" },
+  w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+  w.WriteHeader(http.StatusOK)
+  if err := json.NewEncoder(w).Encode(todos); err != nil {
+    panic(err)
   }
-
-  json.NewEncoder(w).Encode(todos)
 }
 
 func TodoShow(w http.ResponseWriter, r *http.Request) {
   vars := mux.Vars(r)
-  todoId := vars["todoId"]
-  fmt.Fprintln(w, "Todo show:", todoId)
+  var todoId int
+  var err error
+  if todoId, err = strconv.Atoi(vars["todoId"]); err != nil {
+    panic(err)
+  }
+  todo := RepoFindTodo(todoId)
+  if todo.Id > 0 {
+    w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+    w.WriteHeader(http.StatusOK)
+    if err := json.NewEncoder(w).Encode(todo); err != nil {
+      panic(err)
+    }
+    return
+  }
+
+  w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+  w.WriteHeader(http.StatusNotFound)
+  if err := json.NewEncoder(w).Encode(JsonError { Code: http.StatusNotFound, Text: "Not found"}); err != nil {
+    panic(err)
+  }
 }
