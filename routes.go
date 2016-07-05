@@ -26,4 +26,10 @@ var routes = Routes {
     "/todos",
     TodoIndex,
   },
+  Route {
+    "TodoShow",
+    "GET",
+    "/todos/{todoId}",
+    TodoShow,
+  },
 }
