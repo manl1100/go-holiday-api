@@ -1,4 +1,4 @@
-{"date": "1/1/2016", "holiday": "Polar Bear Plunge Day", "day": "Friday"},
+[{"date": "1/1/2016", "holiday": "Polar Bear Plunge Day", "day": "Friday"},
 {"date": "1/2/2016", "holiday": "Buffet Day", "day": "Saturday"},
 {"date": "1/2/2016", "holiday": "Run It up the Flagpole and See If Anyone Salutes It Day", "day": "Saturday"},
 {"date": "1/2/2016", "holiday": "Science Fiction Day", "day": "Saturday"},
@@ -425,4 +425,4 @@
 {"date": "12/28/2016", "holiday": "Card Playing Day", "day": "Wednesday"},
 {"date": "12/29/2016", "holiday": "Pepper Pot Day", "day": "Thursday"},
 {"date": "12/30/2016", "holiday": "Bicarbonate of Soda Day", "day": "Friday"},
-{"date": "12/31/2016", "holiday": "Make Up Your Mind Day", "day": "Saturday"}
+{"date": "12/31/2016", "holiday": "Make Up Your Mind Day", "day": "Saturday"}]
