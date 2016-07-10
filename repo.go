@@ -10,22 +10,20 @@ import (
 var currentId int
 var todos Todos
 
+var holidays Holidays
+
 func init() {
-  var data Holidays
   file, err := ioutil.ReadFile("holidays.json")
   if err != nil {
     log.Fatal(err)
   }
 
-  err = json.Unmarshal(file, &data)
+  err = json.Unmarshal(file, &holidays)
   if err != nil {
     log.Fatal(err)
   }
 
-  fmt.Println(data)
-
-  RepoCreateTodo(Todo { Name: "something" })
-  RepoCreateTodo(Todo { Name: "something else"})
+  fmt.Println(holidays)
 }
 
 func RepoFindTodo(id int) Todo {

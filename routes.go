@@ -17,8 +17,8 @@ var routes = Routes {
   Route {
     "TodoIndex",
     "GET",
-    "/todos",
-    TodoIndex,
+    "/holidays",
+    HolidayIndex,
   },
   Route {
     "TodoShow",
