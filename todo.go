@@ -1,6 +1,8 @@
 package main
 
 import (
+  // "time"
+  // "encoding/json"
 )
 
 type Todo struct {
@@ -9,3 +11,11 @@ type Todo struct {
 }
 
 type Todos []Todo
+
+type Holidays []Holiday
+
+type Holiday struct {
+  Date string `json:"date"`
+  Holiday string `json:"holiday"`
+  Day string `json:"day"`
+}

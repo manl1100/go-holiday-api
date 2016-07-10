@@ -10,10 +10,8 @@ import (
 var currentId int
 var todos Todos
 
-type holiday []map[string]string
-
 func init() {
-  var data holiday
+  var data Holidays
   file, err := ioutil.ReadFile("holidays.json")
   if err != nil {
     log.Fatal(err)
