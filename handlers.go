@@ -24,7 +24,7 @@ func TodoShow(w http.ResponseWriter, r *http.Request) {
     panic(err)
   }
   todo := RepoFindTodo(todoId)
-  if todo.Id > 0 {
+  if len(todo) > 0 {
     w.Header().Set("Content-Type", "application/json; charset=UTF-8")
     w.WriteHeader(http.StatusOK)
     if err := json.NewEncoder(w).Encode(todo); err != nil {

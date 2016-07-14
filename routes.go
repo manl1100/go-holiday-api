@@ -15,15 +15,15 @@ type Routes []Route
 
 var routes = Routes {
   Route {
-    "TodoIndex",
+    "HolidayIndex",
     "GET",
     "/holidays",
     HolidayIndex,
   },
   Route {
-    "TodoShow",
+    "HolidayShow",
     "GET",
-    "/todos/{todoId}",
+    "/holidays/{todoId}",
     TodoShow,
   },
 }

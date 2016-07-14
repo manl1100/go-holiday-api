@@ -2,9 +2,10 @@ package main
 
 import (
   "encoding/json"
-  "fmt"
   "io/ioutil"
   "log"
+  "strings"
+  "strconv"
 )
 
 var currentId int
@@ -22,18 +23,23 @@ func init() {
   if err != nil {
     log.Fatal(err)
   }
-
-  fmt.Println(holidays)
 }
 
-func RepoFindTodo(id int) Todo {
-  for _, t := range todos {
-    if t.Id == id {
-      return t
+func RepoFindTodo(id int) Holidays {
+  var output Holidays
+  for _, t := range holidays {
+    dt := strings.Split(t.Date, "/")
+    var mon int
+    var err error
+    if mon, err = strconv.Atoi(dt[0]); err != nil {
+      panic(err)
+    }
+    if mon == id {
+      output = append(output, t)
     }
   }
 
-  return Todo{}
+  return output
 }
 
 func RepoCreateTodo(t Todo) Todo {
